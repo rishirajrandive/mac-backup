@@ -1,0 +1,60 @@
+@startuml 
+skinparam classAttributeIconSize 0
+class Task {
++id: int
++name: String
++frequency: String
++startDate: String
++type: String
++userInvolvedId: int
++groupId: int
++groupName: String
++assignType: String
++colorId: int
+}
+
+class User {
++User() 
++isCurrentUser(): boolean
++toString(): String
++id: int
++firstName: String
++lastName: String
++email: String
++password: String
++phoneNumber: String
++signUpFrom: String
++photoUrl: String
+-isCurrentUser: boolean
++colorId: int
+}
+
+class UserGroup {
++toString(): String
++id: int
++name: String
++photoId: int
++photoUrl: String
+}
+
+class UsersInGroup {
+}
+
+class UsersInTask {
++sequence: int
+}
+
+Task -- User
+
+UserGroup"1" -- "0..*"User
+
+UsersInGroup -- User
+
+UsersInGroup -- UserGroup
+
+UsersInTask -- User
+
+UsersInTask -- Task
+
+hide circle 
+@enduml
